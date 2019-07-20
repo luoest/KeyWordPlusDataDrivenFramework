@@ -1,3 +1,5 @@
+#encoding = utf-8
+
 from selenium import webdriver
 from baseUtil.WaitUtiling import WaitUtiling
 from baseUtil.PageObject import getElement

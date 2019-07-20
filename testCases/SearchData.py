@@ -76,7 +76,7 @@ def DataDrivenForSearching(dataSheetObj, stepSheetObj, caseRowNo):
                     nowTime=excelObj.now)
 
 if __name__ == '__main__':
-    from testCases.TestCtripSearch import TestCtripSearh
+    from testCases.test_ctripSearch import TestCtripSearh
     TestCtripSearh()
     dataSheetObj = excelObj.getSheet('机票查询数据')
     stepSheetObj = excelObj.getSheet('机票查询')
