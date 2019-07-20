@@ -27,7 +27,7 @@ keyErroNo = 8
 keyPicNo = 9
 
 # “机票查询数据”对应单元格序号
-dataChoiceNo = 6
+dataChoiceNo = 6  # 添加新的用例，如酒店查询，是否执行及后面的选项都应放在相应单元格
 dataTimeNo = 7
 dataResultNo = 8
 dataErroNo = 9

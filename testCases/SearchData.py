@@ -31,6 +31,8 @@ def DataDrivenForSearching(dataSheetObj, stepSheetObj, caseRowNo):
                             executing_method = methodName + '("%s","%s","%s")'%(locType, loc, cellValue)
                         elif methodName and locType is None and loc is None:
                             executing_method = methodName + '("%s")'%(cellValue)
+                elif methodName and locType is None and loc is None and cellParam is None: # 没有任何参数的情况
+                    executing_method = methodName + '()'
                 else:
                     executing_method = methodName + '("%s","%s")' % (locType, loc)
                 try:
@@ -51,7 +53,7 @@ def DataDrivenForSearching(dataSheetObj, stepSheetObj, caseRowNo):
                 print(msg)
                 logging.info(msg)
                 writeResult(dataSheetObj, msg, idx+2, colNo=dataResultNo, timeNo=dataTimeNo, style='blue',
-                            nowTime=excelObj.now)
+                            nowTime=excelObj.now, erro=' ', erroNo=dataErroNo, picPath=' ',picNo=dataPicNo)
                 successful_cases += 1
             else:
                 msg = '<失败>用例：“%s”共有步骤：“%d”，执行成功步骤：“%d”' % (dataSheetObj.title, stepRowNum - 1, stepNum)

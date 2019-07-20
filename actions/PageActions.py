@@ -3,6 +3,8 @@ from baseUtil.WaitUtiling import WaitUtiling
 from baseUtil.PageObject import getElement
 import time, os
 from baseUtil.PathAndDir import exception_dir
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
 
 def getBrowser(browserName):
     global driver, wait, browser_name
@@ -66,17 +68,23 @@ def getImage():
     driver.get_screenshot_as_file(imageName)
     return imageName
 
+def getPressEnterKey():
+    '''
+    模拟回车键
+    '''
+    ActionChains(driver).key_down(Keys.CONTROL).send_keys(Keys.ENTER).key_up(Keys.CONTROL).perform()
+
 
 
 if __name__ == '__main__':
     try:
         getBrowser('chrome')
         getMaximizedBrowser()
-        getUrl('https://flights.ctrip.com/itinerary/roundtrip/bjs-syx?date=2019-07-17,2019-07-27')
-        getAssertElementInTitle('北京到三亚往返机票预订')
-        print(getImage())
-        getAssertInPageSource('首都国际机场')
-        print(getImage())
+        getUrl('https://www.baidu.com')
+        getSendKeys('id', 'kw', 2019)
+        getSleep(1)
+        getPressEnterKey()
 
     finally:
+        getSleep(3)
         getClose()
